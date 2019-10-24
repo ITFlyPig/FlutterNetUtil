@@ -23,7 +23,7 @@ public class FlutterNetUtilPlugin implements MethodCallHandler{
     @Override
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         if (methodCall.method.equals("getPlatformVersion") ) {
-            result.success("Android ${android.os.Build.VERSION.RELEASE}");
+            result.success("Android " + android.os.Build.VERSION.RELEASE);
         } else if(methodCall.method.equals("getOperatorName")){
             String operatorName = NetUtils.getOperatorName(context);
             result.success(operatorName);

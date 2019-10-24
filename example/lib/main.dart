@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_net_util/flutter_net_util.dart';
+import 'package:flutter_net_util/net_state.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      int state = await FlutterNetUtil.networkState;
+      NetState state = await FlutterNetUtil.networkState;
       platformVersion = state?.toString();
       _signalStrength = await FlutterNetUtil.getSignalStrength();
     } on PlatformException {

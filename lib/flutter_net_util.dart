@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'package:flutter_net_util/net_state.dart';
 
 class FlutterNetUtil {
   static const MethodChannel _channel = const MethodChannel('flutter_net_util');
@@ -18,9 +19,31 @@ class FlutterNetUtil {
   }
 
   ///获取网络的状态
-  static Future<int> get networkState async {
+  static Future<NetState> get networkState async {
     final int state = await _channel.invokeMethod('getNetworkState');
-    return state;
+    NetState netState;
+    switch(state){
+      case 0:
+        netState = NetState.NETWORK_NONE;
+        break;
+      case 1:
+        netState = NetState.NETWORK_WIFI;
+        break;
+      case 2:
+        netState = NetState.NETWORK_2G;
+        break;
+      case 3:
+        netState = NetState.NETWORK_3G;
+        break;
+      case 4:
+        netState = NetState.NETWORK_4G;
+        break;
+      case 5:
+        netState = NetState.NETWORK_MOBILE;
+        break;
+
+    }
+    return netState;
   }
 
   ///开始监听网络的信号强度

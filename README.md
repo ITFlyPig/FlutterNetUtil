@@ -1,14 +1,6 @@
-# flutter_net_util
-
-A new Flutter plugin.
-
-## Getting Started
-
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### Flutter 网络相关的插件，主要包含以下功能：
+1. 判断是否联网
+2. 判断是wifi还是流量
+3. 如果是流量，判断是2G、3G、4G等
+4. 获取网络的信号的强度（这里还没有格式话为统一的值）
+5. 待添加
